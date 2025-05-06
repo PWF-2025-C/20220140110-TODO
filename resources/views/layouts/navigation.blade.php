@@ -20,16 +20,18 @@
                         {{ __('Todo') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                        {{ __('User') }}
-                    </x-nav-link>
+                    @can('admin')
+                        <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                            {{ __('User') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('todo')" :active="request()->routeIs('todo')">
                         {{ __('todo') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Settings Dropdown -->
